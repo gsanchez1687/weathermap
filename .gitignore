@@ -1,0 +1,12 @@
+/node_modules
+/public/storage
+/public/sitemap.xml
+/vendor
+.env
+.env.example
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.DS_Store
+.idea
