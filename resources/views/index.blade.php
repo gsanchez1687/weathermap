@@ -17,6 +17,7 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="search-form">
+            @if ( !empty($data) )
             <div class="text-center">
                 <h1 class="fw-bold text-capitalize">{{ $data['name'] }}</h1>
                 <h2>{{ ceil($data['main']['temp'] - 273.15) }}º</h2>
@@ -26,6 +27,9 @@
                     <span>Min: {{ $data['main']['temp_min'] - 273.15 }}º</span>
                 </h5>
             </div>
+            @else
+                <h2>Esta en ambiente local, escribe una ciudad para realizar la busqueda</h2>
+            @endif
         </div>
       </div>
     </div>

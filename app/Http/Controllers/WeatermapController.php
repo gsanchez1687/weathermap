@@ -3,22 +3,19 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Weathermap as Weathermap;
 use App\Http\Requests\CityRequest;
-use App\Models\City;
-use Illuminate\Http\Request;
 
 class WeatermapController extends Controller
 {
    
      public function index(){
-
-        $datamiami   = Weathermap::getApi('services.wf.miami');
-        $datorlando  = Weathermap::getApi('services.wf.orlando');
-        $datanewyork = Weathermap::getApi('services.wf.newyork');
+        if( config('services.local.local') != 'local' ){
+            $ip = Weathermap::getRealIP();
+            $city = geoip()->getLocation($ip);
+            $response = Weathermap::getWeaterforName($city['city']);
+        }
 
         return view('index')->with([
-            'datamiami'=>$datamiami,
-            'dataorlando'=>$datorlando,
-            'datanewyork'=>$datanewyork
+            'data'=>@$response
         ]);
     }
 

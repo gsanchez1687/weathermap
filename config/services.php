@@ -37,5 +37,8 @@ return [
     ],
     'key'=>[
         'keysecret' => env('KEY_SECRET')
+    ],
+    'local'=>[
+        'local' => env('APP_ENV')
     ]
 ];
