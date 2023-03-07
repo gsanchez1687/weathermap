@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Http;
 |
 */
 
-Route::resource('/','WeatermapController')->only(['index']);
+Route::resource('/','WeatermapController')->only(['index','search']);
+Route::get('/search', 'WeatermapController@search')->name('search');

@@ -34,5 +34,8 @@ return [
         'miami'=> env('URL_MIAMI'),
         'orlando'=>env('URL_ORLANDO'),
         'newyork' => env('URL_NEWYORK'),
+    ],
+    'key'=>[
+        'keysecret' => env('KEY_SECRET')
     ]
 ];

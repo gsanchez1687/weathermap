@@ -1,32 +1,33 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row text-center py-5">
-        <div class="animate__animated animate__pulse col-md">
-            <h1 class="fw-bold">{{ $datamiami['name'] }}</h1>
-            <h3>Humidity</h3>
-            <h2 class="fw-light">
-                <i class="px-2 bi bi-moisture"></i>
-                {{ $datamiami['main']['humidity'] }}
-            </h2>
-            @include('components.maps.miami');
+
+<div class="text-center">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="search-form">
+            <form action="{{ route('search') }}" method="get">
+                @csrf
+                <input type="text" class="form-control form-control-lg" name="city" id="city" placeholder="Nombre de la ciudad">
+                <div class="d-grid gap-2 col-12 mx-auto">
+                    <button type="submit" class="btn btn-lg btn-outline-primary mt-3">Buscar</button>
+                </div>
+            </form>
         </div>
-        <div class="animate__animated animate__pulse col-md">
-            <h1 class="fw-bold">{{ $dataorlando['name'] }}</h1>
-            <h3>Humidity</h3>
-            <h2 class="fw-light">
-                <i class="px-2 bi bi-moisture"></i>
-                {{ $dataorlando['main']['humidity'] }}
-            </h2>
-            @include('components.maps.orlando');
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="search-form">
+            <div class="text-center">
+                <h1 class="fw-bold text-capitalize">{{ $data['name'] }}</h1>
+                <h2>{{ ceil($data['main']['temp'] - 273.15) }}º</h2>
+                <h5 class="text-capitalize">{{ $data['weather'][0]['description'] }}</h5>
+                <h5>
+                    <span>Máx: {{ $data['main']['temp_max'] - 273.15 }}º</span>
+                    <span>Min: {{ $data['main']['temp_min'] - 273.15 }}º</span>
+                </h5>
+            </div>
         </div>
-        <div class="animate__animated animate__pulse col-md">
-            <h1 class="fw-bold">{{ $datanewyork['name'] }}</h1>
-            <h3>Humidity</h3>
-            <h2 class="fw-light">
-                <i class="px-2 bi bi-moisture"></i>
-                {{ $datanewyork['main']['humidity'] }}
-            </h2>
-            @include('components.maps.newyork');
-        </div>
+      </div>
     </div>
+  </div>
 @endsection
