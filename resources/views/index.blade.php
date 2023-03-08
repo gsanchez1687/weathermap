@@ -3,7 +3,7 @@
 <div class="text-center">
     <div class="row">
       <div class="text-center mt-4">
-        <h1 class="fw-bold"><a href="{{ route('index') }}">Api Weather Map</a></h1>
+        <h1 class="fw-bold"><a href="{{ route('index') }}">API Weather Map con API geolocalización</a></h1>
       </div>
       <div class="col-md-4">
         <div class="search-form">
