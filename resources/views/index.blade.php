@@ -11,7 +11,7 @@
                 @csrf
                 <input type="text" class="form-control form-control-lg" name="city" id="city" placeholder="Escribe una ciudad">
                 <div class="d-grid gap-2 col-12 mx-auto">
-                    <button type="submit" class="btn btn-lg btn-warning mt-3">Buscar</button>
+                    <button type="submit" class="airbnb text-yellow btn btn-lg btn-warning mt-3">Buscar</button>
                 </div>
             </form>
         </div>
