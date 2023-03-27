@@ -35,10 +35,10 @@ return [
         'orlando'=>env('URL_ORLANDO'),
         'newyork' => env('URL_NEWYORK'),
     ],
-    'key'=>[
+    'openweathermap'=>[
         'keysecret' => env('KEY_SECRET')
     ],
     'local'=>[
         'local' => env('APP_ENV')
-    ]
+    ],
 ];

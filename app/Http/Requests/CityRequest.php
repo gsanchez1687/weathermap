@@ -22,7 +22,7 @@ class CityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city' => ['required','min:1,min:50']
+            'city' => ['required','min:1,max:50']
         ];
     }
 }

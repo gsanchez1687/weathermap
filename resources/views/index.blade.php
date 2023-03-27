@@ -9,7 +9,7 @@
         <div class="search-form">
             <form action="{{ route('search') }}" method="get">
                 @csrf
-                <input type="text" class="form-control form-control-lg" name="city" id="city" placeholder="Escribe para buscar">
+                <input type="text" class="form-control form-control-lg" name="city" id="city" placeholder="Escribe una ciudad">
                 <div class="d-grid gap-2 col-12 mx-auto">
                     <button type="submit" class="btn btn-lg btn-warning mt-3">Buscar</button>
                 </div>
@@ -21,12 +21,15 @@
         <div class="search-form">
             @if ( !empty($data) )
             <div class="text-center">
-                <h1 class="fw-bold text-capitalize">{{ $data['name'] }}</h1>
-                <h2>{{ ceil($data['main']['temp'] - 273.15) }}º</h2>
-                <h5 class="text-capitalize">{{ $data['weather'][0]['description'] }}</h5>
+                @include('components.weatherimage',['main'=>$data['weather'][0]['main']])
+                <h1 class="fw-bold text-capitalize">{{ $data['name'] }} - {{ $data['sys']['country'] }}</h1>
+                <h2>{{ $data['main']['temp'] }}º</h2>
+                <h5 class="text-capitalize">{{ $data['weather'][0]['main'] }}</h5>
                 <h5>
-                    <span>Máx: {{ $data['main']['temp_max'] - 273.15 }}º</span>
-                    <span>Min: {{ $data['main']['temp_min'] - 273.15 }}º</span>
+                    <div>Máx: {{ $data['main']['temp_max'] }}º</div>
+                    <div>Min: {{ $data['main']['temp_min'] }}º</div>
+                    <div>Humedad: {{ $data['main']['humidity'] }}%</div>
+                    <div>Viento: {{ $data['wind']['speed'] }}Km/h</div>
                 </h5>
             </div>
             @else

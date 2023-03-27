@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Weathermap as Weathermap;
 use App\Http\Requests\CityRequest;
+use WeakMap;
 
 class WeatermapController extends Controller
 {
@@ -24,7 +25,7 @@ class WeatermapController extends Controller
         $city = trim($request['city']);
         $response = Weathermap::getWeaterforName($city);
         return view('index')->with([
-            'data'=>$response
+            'data'=>$response,
         ]);
     }
 }
