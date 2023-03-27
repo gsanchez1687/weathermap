@@ -3,7 +3,7 @@
 <div class="text-center">
     <div class="row">
       <div class="text-center mt-4">
-        <h1 class="fw-bold"><a href="{{ route('index') }}">API Weather Map con API geolocalización</a></h1>
+        <h1 class="fw-bold airbnb text-title"><a href="{{ route('index') }}">API Weather Map</a></h1>
       </div>
       <div class="col-md-4">
         <div class="search-form">
@@ -20,11 +20,11 @@
       <div class="col-md-4">
         <div class="search-form">
             @if ( !empty($data) )
-            <div class="text-center">
+            <div class="text-center text-yellow AirbnbCerealLight">
                 @include('components.weatherimage',['main'=>$data['weather'][0]['main']])
-                <h1 class="fw-bold text-capitalize">{{ $data['name'] }} - {{ $data['sys']['country'] }}</h1>
-                <h2>{{ $data['main']['temp'] }}º</h2>
-                <h5 class="text-capitalize">{{ $data['weather'][0]['main'] }}</h5>
+                <h1 class="fw-bold text-capitalize airbnb">{{ $data['name'] }} - {{ $data['sys']['country'] }}</h1>
+                <h1>{{ $data['main']['temp'] }}º</h1>
+                <h2 class="text-capitalize">{{ $data['weather'][0]['main'] }}</h2>
                 <h5>
                     <div>Máx: {{ $data['main']['temp_max'] }}º</div>
                     <div>Min: {{ $data['main']['temp_min'] }}º</div>
@@ -33,7 +33,7 @@
                 </h5>
             </div>
             @else
-                <h2>Estas en ambiente local, escribe el nombre de un pais, ciudad, pueblo</h2>
+                <h2 class="airbnb">Estas en ambiente local, escribe el nombre de un pais, ciudad, pueblo</h2>
             @endif
         </div>
       </div>
